@@ -258,7 +258,7 @@ const Portfolio: React.FC = () => {
             Mael Ballereau
           </h1>
           <p className="mt-3 text-xl text-indigo-600">
-            Développeur Full Stack | Passionné par l'innovation
+            Développeur Full Stack | Passionné par l&apos;innovation
           </p>
         </div>
       </div>
