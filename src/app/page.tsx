@@ -1,5 +1,8 @@
 "use client";
-import React from "react";
+
+import Image from "next/image";
+
+
 
 // Types pour les compétences
 type Outils = {
@@ -229,7 +232,7 @@ const SkillCard: React.FC<{
   description: string;
 }> = ({ name, svgPath, description }) => (
   <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
-    <img src={svgPath} alt={name} className="w-12 h-12 mb-2" />
+    <Image src={svgPath} alt={name} width={48} height={48} className="w-12 h-12 mb-2" />
     <h3 className="font-semibold text-gray-800">{name}</h3>
     <p className="text-sm text-gray-500 text-center">{description}</p>
   </div>
@@ -242,11 +245,13 @@ const Portfolio: React.FC = () => {
       {/* Header avec photo de profil */}
       <div className="max-w-6xl mx-auto text-center mb-12">
         <div className="flex flex-col items-center">
-          <div className="w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
-            <img
-              src="https://avatars.githubusercontent.com/u/157124771?v=4" // Remplace par le chemin de ta photo
+          <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
+            <Image
+              src="https://avatars.githubusercontent.com/u/157124771?v=4"
               alt="Mael Ballereau"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="128px"
             />
           </div>
           <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
@@ -438,9 +443,11 @@ const Portfolio: React.FC = () => {
               <p>+33 7 68 93 63 82</p>
             </div>
             <div className="flex items-center">
-              <img
+              <Image
                 src="/linkedin.svg"
                 alt="LinkedIn"
+                width={24}
+                height={24}
                 className="w-6 h-6 mr-2"
               />
               <a
@@ -451,9 +458,11 @@ const Portfolio: React.FC = () => {
               </a>
             </div>
             <div className="flex items-center">
-              <img
+              <Image
                 src="/github_light.svg"
                 alt="GitHub"
+                width={24}
+                height={24}
                 className="w-6 h-6 mr-2"
               />
               <a
