@@ -120,3 +120,6 @@
     @apply bg-background text-foreground;
   }
 }
+.librairies {
+  margin-inline: 1rem;
+}
