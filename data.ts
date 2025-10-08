@@ -98,11 +98,13 @@ export const listLangage: Languages[] = [
     name: "HTML",
     svgPath: "/icons/langages/html5.svg",
     description: "J'ai appris HTML et je l'utilise quotidiennement.",
+    highlight: true,
   },
   {
     name: "CSS",
     svgPath: "/icons/langages/css-3.svg",
     description: "J'ai appris CSS et je l'utilise quotidiennement.",
+    highlight: true,
   },
   {
     name: "SCSS",
@@ -167,6 +169,7 @@ export const ListORM: ORM[] = [
     svgPath: "/icons/orm/doctrine.svg",
     description:
       "J'ai utilisé Doctrine lors de mon projet de BTS avec l'utilisation de Symfony",
+    highlight: true,
   },
   {
     name: "Prisma",
@@ -192,27 +195,27 @@ export const listLibrairie: Librairie[] = [
   },
 ];
 export const listMethode: Methode[] = [
-  {
-    name: "Agile",
-    svgPath: "/icons/methode/agile.svg",
-    description:
-      "J'ai utilisé Agile lors de mon stage de 2ème année de BTS SIO.",
-  },
-  {
-    name: "Scrum",
-    svgPath: "/icons/methode/scrum.svg",
-    description:
-      "J'ai utilisé Scrum lors de mon stage de 2ème année de BTS SIO.",
-  },
-  {
-    name: "Kanban",
-    svgPath: "/icons/methode/kanban.svg",
-    description:
-      "J'ai utilisé Kanban lors de mon stage de 2ème année de BTS SIO.",
-  },
-  {
-    name: "CI/CD",
-    svgPath: "/icons/methode/ci-cd.svg",
-    description: "J'ai utilisé CI/CD lors de projets personnels",
-  },
+  // {
+  //   name: "Agile",
+  //   svgPath: "/icons/methode/agile.svg",
+  //   description:
+  //     "J'ai utilisé Agile lors de mon stage de 2ème année de BTS SIO.",
+  // },
+  // {
+  //   name: "Scrum",
+  //   svgPath: "/icons/methode/scrum.svg",
+  //   description:
+  //     "J'ai utilisé Scrum lors de mon stage de 2ème année de BTS SIO.",
+  // },
+  // {
+  //   name: "Kanban",
+  //   svgPath: "/icons/methode/kanban.svg",
+  //   description:
+  //     "J'ai utilisé Kanban lors de mon stage de 2ème année de BTS SIO.",
+  // },
+  // {
+  //   name: "CI/CD",
+  //   svgPath: "/icons/methode/ci-cd.svg",
+  //   description: "J'ai utilisé CI/CD lors de projets personnels",
+  // },
 ];

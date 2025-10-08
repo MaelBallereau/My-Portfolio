@@ -9,6 +9,20 @@ import {
   ListORM,
   listLibrairie,
 } from "../../data";
+import gsap from "gsap";
+import SkillCloud from "@/components/CloudSkills/Skills";
+
+const handleHover = (el: HTMLDivElement, hover: boolean) => {
+  gsap.to(el, {
+    scale: hover ? 1.1 : 1,
+    y: hover ? -1 : 0,
+    boxShadow: hover
+      ? "0px 10px 20px rgba(0,0,0,0.2)"
+      : "0px 4px 10px rgba(0,0,0,0.1)",
+    duration: 0.3,
+    ease: "power2.out",
+  });
+};
 
 const SkillCard: React.FC<{
   name: string;
@@ -18,7 +32,9 @@ const SkillCard: React.FC<{
   className?: string;
 }> = ({ name, svgPath, description, highlight, className }) => (
   <div
-    className={`flex flex-col items-center p-4 rounded-lg transition-all duration-300 hover:scale-110 relative ${className}`}
+    className={`flex flex-col items-center p-4 rounded-lg  relative ${className}`}
+    onMouseEnter={(e) => handleHover(e.currentTarget, true)}
+    onMouseLeave={(e) => handleHover(e.currentTarget, false)}
   >
     <Image src={svgPath} alt={name} width={48} height={48} className="mb-2" />
     <h3 className="font-semibold text-gray-800">{name}</h3>
@@ -39,7 +55,7 @@ const SkillCard: React.FC<{
 
 const Portfolio: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  relative bg py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <div className="flex flex-col items-center">
           <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
@@ -156,7 +172,7 @@ const Portfolio: React.FC = () => {
               ))}
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-[180px]">
+        <div className="bg-white p-12 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-[180px]">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-indigo-500 pb-2">
             À propos de moi
           </h2>
@@ -168,7 +184,7 @@ const Portfolio: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow ">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-indigo-500 pb-2">
             Soft Skills
           </h2>
@@ -226,6 +242,9 @@ const Portfolio: React.FC = () => {
           </ul>
         </div>
       </div>
+      <div className="flex align-center justify-center mt-16">
+        <SkillCloud />
+      </div>
 
       <div className="flex justify-center align-center my-10">
         <button
@@ -252,63 +271,64 @@ const Portfolio: React.FC = () => {
           MaelBallereau
         </button>
       </div>
-
-      <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow lg:col-span-2">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-indigo-500 pb-2">
-          Contact
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600">
-          <div>
-            <p className="font-semibold">Email</p>
-            <a
-              href="mailto:maelballereau363@gmail.com"
-              className="text-indigo-500 hover:underline"
-            >
-              maelballereau363@gmail.com
-            </a>
-          </div>
-          <div>
-            <p className="font-semibold">Téléphone</p>
-            <p>+33 7 68 93 63 82</p>
-          </div>
-          <div className="flex items-center">
-            <Image
-              src="/linkedin.svg"
-              alt="LinkedIn"
-              width={24}
-              height={24}
-              className="w-6 h-6 mr-2"
-            />
-            <a
-              href="https://www.linkedin.com/in/mael-ballereau-320042298"
-              className="text-indigo-500 hover:underline"
-            >
-              linkedin.com/in/maelballereau
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-6 flex justify-center">
-          <a
-            href="/MaelBallereauCV.pdf"
-            download="Mael_Ballereau_CV.pdf"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-          >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+      <div className="flex align-center justify-center">
+        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow lg:col-span-2 max-w-6xl ">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-indigo-500 pb-2">
+            Contact
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600">
+            <div>
+              <p className="font-semibold">Email</p>
+              <a
+                href="mailto:maelballereau363@gmail.com"
+                className="text-indigo-500 hover:underline"
+              >
+                maelballereau363@gmail.com
+              </a>
+            </div>
+            <div>
+              <p className="font-semibold">Téléphone</p>
+              <p>+33 7 68 93 63 82</p>
+            </div>
+            <div className="flex items-center">
+              <Image
+                src="/linkedin.svg"
+                alt="LinkedIn"
+                width={24}
+                height={24}
+                className="w-6 h-6 mr-2"
               />
-            </svg>
-            Télécharger mon CV
-          </a>
+              <a
+                href="https://www.linkedin.com/in/mael-ballereau-320042298"
+                className="text-indigo-500 hover:underline"
+              >
+                linkedin.com/in/maelballereau
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-6 flex justify-center">
+            <a
+              href="/MaelBallereauCV.pdf"
+              download="Mael_Ballereau_CV.pdf"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+            >
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Télécharger mon CV
+            </a>
+          </div>
         </div>
       </div>
     </div>

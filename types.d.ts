@@ -36,4 +36,5 @@ export interface Methode {
   name: string;
   svgPath: string;
   description: string;
+  highlight?: boolean;
 }
