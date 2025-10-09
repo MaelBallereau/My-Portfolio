@@ -172,7 +172,7 @@ const Portfolio: React.FC = () => {
               ))}
           </div>
         </div>
-        <div className="bg-white p-12 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-[180px]">
+        <div className="bg-white p-12 rounded-lg shadow-lg hover:shadow-xl transition-shadow h-[220px]">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-indigo-500 pb-2">
             À propos de moi
           </h2>
