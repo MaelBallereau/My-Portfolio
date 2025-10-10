@@ -10,7 +10,7 @@ import {
   listLibrairie,
 } from "../../data";
 import gsap from "gsap";
-import SkillCloud from "@/components/CloudSkills/Skills";
+
 
 const handleHover = (el: HTMLDivElement, hover: boolean) => {
   gsap.to(el, {
@@ -241,9 +241,6 @@ const Portfolio: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="flex align-center justify-center mt-16">
-        <SkillCloud />
       </div>
 
       <div className="flex justify-center align-center my-10">
