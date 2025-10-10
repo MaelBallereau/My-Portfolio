@@ -48,7 +48,7 @@ export default function SkillCloud() {
     const minDist = 60;
 
     allSkills.forEach((skill) => {
-      const size = skill.highlight ? 50 : 38;
+      const size = skill.highlight ? 60 : 38;
       const totalPadding = minDist / 2 + size / 2;
       let tries = 0;
       let pos: Position | undefined;
@@ -86,7 +86,7 @@ export default function SkillCloud() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[550px] w-full flex flex-col items-center justify-center bg-gradient-to-b from-slate-50 to-slate-100 overflow-hidden rounded-lg md:w-2/5"
+      className="relative h-[550px] w-full flex flex-col items-center justify-center bg-gradient-to-b from-slate-50 to-slate-100 overflow-hidden rounded-lg lg:w-2/5 "
     >
       <h2 className="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-indigo-500 pb-2">
         Cloud Skills
@@ -96,13 +96,21 @@ export default function SkillCloud() {
           const pos = positions[i];
           if (!pos || !containerRef.current) return null;
 
-          const size = skill.highlight ? 50 : 38;
+          let size = skill.highlight ? 50 : 38;
+          if (window.innerWidth < 768) {
+            size = skill.highlight ? 35 : 25;
+          }
           const containerWidth = containerRef.current.clientWidth;
           const containerHeight = containerRef.current.clientHeight;
 
-          // On s'assure que le logo ne dépasse jamais des limites du conteneur
-          const safeX = Math.max(size / 2, Math.min(pos.x, containerWidth - size / 2));
-          const safeY = Math.max(size / 2, Math.min(pos.y, containerHeight - size / 2)-30);
+          const safeX = Math.max(
+            size / 2,
+            Math.min(pos.x, containerWidth - size / 2)
+          );
+          const safeY = Math.max(
+            size / 2,
+            Math.min(pos.y, containerHeight - size / 2) - 30
+          );
 
           return (
             <div
